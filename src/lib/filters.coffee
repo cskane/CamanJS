@@ -27,6 +27,8 @@ Filter.register "fillColor", ->
 
 # ## Brightness
 # Simple brightness adjustment
+# It is like normal blend mode with a white layer on top
+# To have similar result as Brightness in Photoshop, use overlay with white layer by adjusting opacity
 #
 # ### Arguments
 # Range is -100 to 100. Values < 0 will darken image while values > 0 will brighten.
@@ -86,6 +88,8 @@ Filter.register "vibrance", (adjust) ->
 # no arguments, it simply makes the image greyscale with no in-between.
 #
 # Algorithm adopted from http://www.phpied.com/image-fun/
+#
+# TODO: support opacity and different lum ratio
 Filter.register "greyscale", (adjust) ->
   @process "greyscale", (rgba) ->
     # Calculate the average value of the 3 color channels 
